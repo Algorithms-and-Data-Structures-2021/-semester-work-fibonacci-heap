@@ -61,10 +61,12 @@ namespace itis {
       }
       return true;
   }
-  void fib_heap::union_fib_heap(fib_heap &fb) {
+
+
+  /*void fib_heap::union_fib_heap(fib_heap &fb) {
     if(union_root(fb.min,fb.roots_amount)) {
       if ((min == nullptr) || ((fb.min != nullptr) && isLess(fb.min, min)))
         min = fb.min;
     }
-  }
+  }*/
 }  // namespace itis

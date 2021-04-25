@@ -24,13 +24,13 @@ namespace itis {
 
    public:
     node* add(int key);
-    void union_fib_heap(fib_heap &fb);
+    //void union_fib_heap(fib_heap &fb);
    private:
     void add(node* newNode, node** sibl, node* par = NULL);
     bool union_root(node* newNode, int nodes_amount);
-
-
   };
+
+
 
 
 
