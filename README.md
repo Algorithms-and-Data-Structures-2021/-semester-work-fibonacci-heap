@@ -203,6 +203,12 @@ _Опишите, как запустить контрольные тесты, ч
 
 ## Источники
 
-_Список использованных при реализации структуры данных источников._
+_https://iq.opengenus.org/fibonacci-heap/
+
+http://espressocode.top/fibonacci-heap-set-1-introduction/
+
+https://neerc.ifmo.ru/wiki/index.php?title=%D0%A4%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8%D0%B5%D0%B2%D0%B0_%D0%BA%D1%83%D1%87%D0%B0
+
+http://cppalgo.blogspot.com/2011/11/fibonacci-heap.html._
 
 _**Это не плагиат, это уважение чужого труда и помощь своим сокурсникам более подробно разобраться в теме.**_
