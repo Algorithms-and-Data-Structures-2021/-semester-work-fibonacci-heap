@@ -1,6 +1,6 @@
 # Фибоначчиева куча
 
-[![CMake](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-template/actions/workflows/cmake.yml/badge.svg)](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-template/actions/workflows/cmake.yml)
+[![CMake](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-fibonacci-heap-AEA/actions/workflows/cmake.yml/badge.svg)](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-fibonacci-heap-AEA/actions/workflows/cmake.yml)
 
 **_Структура:_** _Фибоначчиева куча (Fibonacci heap)_
 
