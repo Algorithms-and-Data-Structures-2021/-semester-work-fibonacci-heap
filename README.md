@@ -156,7 +156,7 @@ _Опишите, как запустить контрольные тесты, ч
 
 1. [Статья от opengenus](https://iq.opengenus.org/fibonacci-heap/)
 
-2. [Cnfnmz c портала информатики для гиков](http://espressocode.top/fibonacci-heap-set-1-introduction/)
+2. [Статья c портала информатики для гиков](http://espressocode.top/fibonacci-heap-set-1-introduction/)
 
 3. [Статья от университета ИТМО](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A4%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8%D0%B5%D0%B2%D0%B0_%D0%BA%D1%83%D1%87%D0%B0)
 
