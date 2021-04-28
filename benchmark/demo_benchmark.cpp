@@ -4,64 +4,63 @@
 #include <string_view>  // string_view
 #include <chrono>       // high_resolution_clock, duration_cast, nanoseconds
 #include <sstream>      // stringstream
+#include <vector>
 
-// подключаем вашу структуру данных
 #include "data_structure.hpp"
 
 using namespace std;
 using namespace itis;
 
-// абсолютный путь до набора данных и папки проекта
-static constexpr auto kDatasetPath = string_view{PROJECT_DATASET_DIR};
-static constexpr auto kProjectPath = string_view{PROJECT_SOURCE_DIR};
-
-int main(int argc, char **argv) {
-
-  // Tip 1: входные аргументы позволяют более гибко контролировать параметры вашей программы
-
-  // Можете передать путь до входного/выходного файла в качестве аргумента,
-  // т.е. не обязательно использовать kDatasetPath и прочие константы
-
-  for (int index = 0; index < argc; index++) {
-    cout << "Arg: " << argv[index] << '\n';
+vector<int> split(const std::string &s, char delimiter) {
+  vector<int> tokens;
+  string token;
+  istringstream tokenStream(s);
+  while (getline(tokenStream, token, delimiter)) {
+    tokens.push_back(stoi(token));
   }
+  return tokens;
+}
 
-  // Tip 2: для перевода строки в число можете использовать функцию stoi (string to integer)
+// спросить про нахождение минимума
+// спросить про путь к файлу
+// что должно быть в папке "тестовые наборы"
+// а еще у нас insert вставляет все числа сразу
 
-  // можете использовать функционал класса stringstream для обработки строки
-  auto ss = stringstream("0 1 2");  // передаете строку (входной аргумент или строку из файла) и обрабатываете ее
+int main(int argc, char** argv) {
+// путь до папки
+  string pathToInputFile = R"(/dataset\input-1000000-0.txt)";
 
-  int number = 0;
-  ss >> number;  // number = 0
-  ss >> number;  // number = 1
-  ss >> number;  // number = 2
+  ifstream file(pathToInputFile);
+  string result;
+  string line;
 
-  // работа с набором данных
-  const auto path = string(kDatasetPath);
-  cout << "Path to the 'dataset/' folder: " << path << endl;
+ while (getline(file, line)) {
 
-  auto input_file = ifstream(path + "/dataset-example.csv");
+   fibbHeap *testHeap = new fibbHeap;
+   vector<int> intValues = split(line, ' ');
 
-  if (input_file) {
-    // чтение и обработка набора данных ...
-  }
+      //insert
+   double startTime = clock();
+   for (int value : intValues) {
+     testHeap->insert(value);
+   }
+   double endTime = clock();
 
-  // Контрольный тест: операции добавления, удаления, поиска и пр. над структурой данных
+   cout << to_string(endTime - startTime) + " ";
 
-  // Tip 3: время работы программы (или участка кода) можно осуществить
-  // как изнутри программы (std::chrono), так и сторонними утилитами
+      //find min
+   startTime = clock();
+   testHeap->findMin();
+   endTime = clock();
+   cout << to_string(endTime - startTime) + " ";
 
-  const auto time_point_before = chrono::high_resolution_clock::now();
+      //extract min
+   startTime = clock();
+   testHeap->extractMin();
+   endTime = clock();
+   cout << to_string(endTime - startTime) + " \n";
+ }
 
-  // здесь находится участок кода, время которого необходимо замерить
-
-  const auto time_point_after = chrono::high_resolution_clock::now();
-
-  // переводим время в наносекунды
-  const auto time_diff = time_point_after - time_point_before;
-  const long time_elapsed_ns = chrono::duration_cast<chrono::nanoseconds>(time_diff).count();
-
-  cout << "Time elapsed (ns): " << time_elapsed_ns << '\n';
-
-  return 0;
+    file.close();
+    return 0;
 }
