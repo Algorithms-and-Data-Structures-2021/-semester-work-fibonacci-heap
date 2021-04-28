@@ -2,7 +2,7 @@
 
 [![CMake](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-template/actions/workflows/cmake.yml/badge.svg)](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-template/actions/workflows/cmake.yml)
 
-**_Структура:_** _Фибоначчиева куча(Fibonacci heap)_
+**_Структура:_** _Фибоначчиева куча (Fibonacci heap)_
 
 **_Описание:_** Структура данных для операций очереди приоритетов. Как и другие кучи, 
 является набором деревьев. Деревья в фибоначчиевой куче упорядочены в соответствии со свойством неубывающей пирамиды
@@ -26,10 +26,10 @@
 
 ## Команда "Юпитер в раке"
 
-| Фамилия Имя      | Вклад (%) | Прозвище        |
-| :---             |   ---:    |  ---:           |
-| Биккинина Алина  |    33     |                 |
-| Гибадуллина Алсу |    33     |   убейте меня, пожалуйста, хы              |
+| Фамилия Имя      | Вклад (%) | Прозвище                         |
+| :---             |   ---:    |  ---:                            |
+| Биккинина Алина  |    33     |                                  |
+| Гибадуллина Алсу |    33     |   убейте меня, пожалуйста, хы    |
 | Малыгина Элина   |    33     |   мама, я отчисляюсь             |
 
 **Девиз команды**
@@ -154,10 +154,10 @@ _Опишите, как запустить контрольные тесты, ч
 
 ## Источники
 
-https://iq.opengenus.org/fibonacci-heap/
+1. [Статья от opengenus](https://iq.opengenus.org/fibonacci-heap/)
 
-http://espressocode.top/fibonacci-heap-set-1-introduction/
+2. [Cnfnmz c портала информатики для гиков](http://espressocode.top/fibonacci-heap-set-1-introduction/)
 
-https://neerc.ifmo.ru/wiki/index.php?title=%D0%A4%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8%D0%B5%D0%B2%D0%B0_%D0%BA%D1%83%D1%87%D0%B0
+3. [Статья от университета ИТМО](https://neerc.ifmo.ru/wiki/index.php?title=%D0%A4%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8%D0%B5%D0%B2%D0%B0_%D0%BA%D1%83%D1%87%D0%B0)
 
-http://cppalgo.blogspot.com/2011/11/fibonacci-heap.html
+4. [Алгоритмы C++ (олимпиадный подход): Фибоначчиева куча](http://cppalgo.blogspot.com/2011/11/fibonacci-heap.html)
