@@ -63,8 +63,6 @@ _В этом разделе задаются основые требования
 
 _Инструкция по сборке проекта, генерации тестовых данных, запуска контрольных тестов и примеров работы._
 
-_Постарайтесь написать инструкцию так, чтобы незнакомый с проектом человек смог самостоятельно всё запустить._
-
 ### Пример (Windows)
 
 #### Сборка проекта
@@ -75,20 +73,7 @@ _Опишите процесс сборки проекта._
 возможности IDE):
 
 ```shell
-git clone https://github.com/Algorithms-and-Data-Structures-2021/semester-work-template.git
-```
-
-Для ручной сборки проекта в терминале введите:
-
-```shell
-# переход в папку с проектом
-cd C:\Users\username\asd-projects\semester-work-template
-
-# создание папки для файлов сборки (чтобы не засорять папку с проектом) 
-mkdir -p build && cd build 
-
-# сборка проекта
-cmake .. -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --config RelWithDebInfo --build . 
+git clone https://github.com/Algorithms-and-Data-Structures-2021/semester-work-fibonacci-heap-AEA.git
 ```
 
 #### Генерация тестовых данных
@@ -176,5 +161,3 @@ http://espressocode.top/fibonacci-heap-set-1-introduction/
 https://neerc.ifmo.ru/wiki/index.php?title=%D0%A4%D0%B8%D0%B1%D0%BE%D0%BD%D0%B0%D1%87%D1%87%D0%B8%D0%B5%D0%B2%D0%B0_%D0%BA%D1%83%D1%87%D0%B0
 
 http://cppalgo.blogspot.com/2011/11/fibonacci-heap.html
-
-_**Это не плагиат, это уважение чужого труда и помощь своим сокурсникам более подробно разобраться в теме.**_
