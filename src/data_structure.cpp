@@ -1,72 +1,167 @@
-#include <accctrl.h>
 #include "data_structure.hpp"
 
 // файл с определениями
 
-namespace itis {
+namespace itis {void fibbHeap::insert(int val) {
+    node *newNode = new node;
+    newNode->key = val;
+    newNode->parent = nullptr;
+    newNode->child = nullptr;
+    newNode->left = newNode;
+    newNode->right = newNode;
 
-  node::node(int key){
-    this->key=key;
-  }
+    if (minHeapNode != nullptr) {
 
-  void fib_heap::add(node *newNode, node **sibl, node *par) {
-    if (*sibl == NULL) {
-      *sibl = newNode;
-      newNode->left = newNode;
-      newNode->right = newNode;
-    }
-    else {
-      newNode->right = (*sibl)->right;
-      newNode->right->left = newNode;
-      newNode->left = *sibl;
-      (*sibl)->right = newNode;
-    }
-    if (isLess(newNode, *sibl))
-      *sibl = newNode;
-    if(*sibl == min) {
-      roots_amount++;
-      newNode->parent = NULL;
-    }
-    if (par){
-      par->degree++;
-      newNode->parent = par;
-    }
-  }
-
-  node *fib_heap::add(int key) {
-      node* newNode = new node(key);
-      add(newNode,&min);
-      return newNode;
-  }
-
-  bool fib_heap::isLess(node* first, node* second) {
-    return first->key<second->key;
-  }
-  bool fib_heap::union_root(node *newNode, int nodes_amount) {
-      if (newNode == NULL)
-        return false;
-
-      if (min == NULL) {
-        min = newNode;
-        roots_amount = nodes_amount;
+      (minHeapNode->left)->right = newNode;
+      newNode->right = minHeapNode;
+      newNode->left = minHeapNode->left;
+      minHeapNode->left = newNode;
+      if (newNode->key < minHeapNode->key) {
+        minHeapNode = newNode;
       }
-      else {
-        node *L = newNode->left;
-        node *R = min->right;
-        min->right = newNode;
-        newNode->left = min;
-        L->right = R;
-        R->left = L;
-        roots_amount += nodes_amount;
-      }
-      return true;
+    } else {
+      minHeapNode = newNode;
+    }
+    nodeNumb++;
   }
 
+  void fibbHeap::linkParentWithChild(node *ptr2, node *ptr1)  {
+    (ptr2->left)->right = ptr2->right;
+    (ptr2->right)->left = ptr2->left;
 
-  /*void fib_heap::union_fib_heap(fib_heap &fb) {
-    if(union_root(fb.min,fb.roots_amount)) {
-      if ((min == nullptr) || ((fb.min != nullptr) && isLess(fb.min, min)))
-        min = fb.min;
+    if (ptr1->right == ptr1) {
+      minHeapNode = ptr1;
     }
-  }*/
+
+    ptr2->left = ptr2;
+    ptr2->right = ptr2;
+    ptr2->parent = ptr1;
+
+    if (ptr1->child == nullptr) {
+      ptr1->child = ptr2;
+    }
+
+    ptr2->right = ptr1->child;
+    ptr2->left = (ptr1->child)->left;
+    ((ptr1->child)->left)->right = ptr2;
+    (ptr1->child)->left = ptr2;
+
+    if (ptr2->key < (ptr1->child)->key) {
+      ptr1->child = ptr2;
+    }
+
+    ptr1->degree++;
+  }
+
+  void fibbHeap::extractMin() {
+    if (minHeapNode == nullptr) {
+      cout << "The heap is empty" << endl;
+    } else {
+      node* temp = minHeapNode;
+      node* ptr;
+      ptr = temp;
+      node* x = nullptr;
+
+      if (temp->child != nullptr) {
+        x = temp->child;
+        do {
+          ptr = x->right;
+          (minHeapNode->left)->right = x;
+          x->right = minHeapNode;
+          x->left = minHeapNode->left;
+          minHeapNode->left = x;
+
+          if (x->key < minHeapNode->key)
+            minHeapNode = x;
+
+          x->parent = nullptr;
+          x = ptr;
+        } while (ptr != temp->child);
+      }
+
+      (temp->left)->right = temp->right;
+      (temp->right)->left = temp->left;
+      minHeapNode = temp->right;
+
+      if (temp == temp->right && temp->child == nullptr) {
+        minHeapNode = nullptr;
+      } else {
+        minHeapNode = temp->right;
+        consolidate();
+      }
+      nodeNumb--;
+    }
+
+  }
+
+  void fibbHeap::consolidate() {
+    int tmp1 = 0;
+    double tmp2 = (log(nodeNumb)) / (log(2));
+    int tmp3 = (int)tmp2;
+    struct node* arr[tmp3];
+
+    for (int i = 0; i <= tmp3; i++) {
+      arr[i] = nullptr;
+    }
+
+    node* ptr1 = minHeapNode;
+    node* ptr2 = nullptr;
+    node* ptr3 = nullptr;
+    node* ptr4 = ptr1;
+
+    do {
+      ptr4 = ptr4->right;
+      tmp1 = ptr1->degree;
+
+      while (arr[tmp1] != nullptr) {
+        ptr2 = arr[tmp1];
+        if (ptr1->key > ptr2->key) {
+          ptr3 = ptr1;
+          ptr1 = ptr2;
+          ptr2 = ptr3;
+        }
+
+        if (ptr2 == minHeapNode) {
+          minHeapNode = ptr1;
+        }
+
+        linkParentWithChild(ptr2, ptr1);
+
+        if (ptr1->right == ptr1) {
+          minHeapNode = ptr1;
+        }
+
+        arr[tmp1] = nullptr;
+        tmp1++;
+      }
+      arr[tmp1] = ptr1;
+      ptr1 = ptr1->right;
+    } while (ptr1 != minHeapNode);
+
+    minHeapNode = nullptr;
+
+    for (int j = 0; j <= tmp3; j++) {
+      if (arr[j] != nullptr) {
+        arr[j]->left = arr[j];
+        arr[j]->right = arr[j];
+        if (minHeapNode != nullptr) {
+          (minHeapNode->left)->right = arr[j];
+          arr[j]->right = minHeapNode;
+          arr[j]->left = minHeapNode->left;
+          minHeapNode->left = arr[j];
+          if (arr[j]->key < minHeapNode->key) {
+            minHeapNode = arr[j];
+          }
+        }
+        else {
+          minHeapNode = arr[j];
+        }
+        if (minHeapNode == nullptr) {
+          minHeapNode = arr[j];
+        } else if (arr[j]->key < minHeapNode->key) {
+          minHeapNode = arr[j];
+        }
+      }
+    }
+  }
 }  // namespace itis
