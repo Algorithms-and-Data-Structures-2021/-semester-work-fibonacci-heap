@@ -26,7 +26,7 @@ vector<int> split(const std::string &s, char delimiter) {
 // что должно быть в папке "тестовые наборы"
 // а еще у нас insert вставляет все числа сразу
 
-int main(int argc, char** argv) {
+int main() {
 // путь до папки
   string pathToInputFile = R"(D:\AaDS\semester-work-fibonacci-heap-new\dataset\input-1000000-0.txt)";
 
