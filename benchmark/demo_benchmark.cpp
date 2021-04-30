@@ -28,7 +28,7 @@ vector<int> split(const std::string &s, char delimiter) {
 
 int main(int argc, char** argv) {
 // путь до папки
-  string pathToInputFile = R"(/dataset\input-1000000-0.txt)";
+  string pathToInputFile = R"(D:\AaDS\semester-work-fibonacci-heap-new\dataset\input-1000000-0.txt)";
 
   ifstream file(pathToInputFile);
   string result;
