@@ -88,11 +88,8 @@ python generate_csv_bench_dataset.py --samples 1000 <output> [args ...]
 Тестовые данные представлены в TXT формате (см.
 [`dataset/data/dataset-example.csv`](dataset/data/dataset-example.csv)):
 
-```csv
-id, full_name
-0, "Ramil Safin"
-1, "Bulat Abbyasov"
-...
+```
+505904 788846 618764 46611 722542 362033 938721 541092 481322 283141 ...
 ```
 
 По названию директории `/dataset/data/add` можно понять, что здесь хранятся наборы данных для контрольных тестов по
