@@ -77,9 +77,7 @@ git clone https://github.com/Algorithms-and-Data-Structures-2021/semester-work-f
 
 ```shell
 # переход в папку генерации набора данных
-```
-(dataset)[https://github.com/Algorithms-and-Data-Structures-2021/semester-work-fibonacci-heap-AEA/tree/main/dataset] 
-```
+[dataset](https://github.com/Algorithms-and-Data-Structures-2021/semester-work-fibonacci-heap-AEA/tree/main/dataset) 
 # запуск Python-скрипта
 python generate_csv_bench_dataset.py --samples 1000 <output> [args ...]
 ```
