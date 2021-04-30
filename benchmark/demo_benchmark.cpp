@@ -34,29 +34,35 @@ int main() {
 
 
   while (getline(file, line)) {
-    fibbHeap *testHeap = new fibbHeap;
     vector<int> intValues = split(line, ' ');
+    for (int i = 0; i < 10; ++i) {
 
-    //insert
-    double startTime = clock();
-    for (int value : intValues) {
-      testHeap->insert(value);
+      fibbHeap *testHeap = new fibbHeap;
+
+      //insert
+      cout << "insert ";
+      double startTime = clock();
+      for (int value : intValues) {
+        testHeap->insert(value);
+      }
+      double endTime = clock();
+
+      cout << to_string(endTime - startTime) + " ";
+
+      //find min
+      cout << "find min ";
+      startTime = clock();
+      testHeap->findMin();
+      endTime = clock();
+      cout << to_string(endTime - startTime) + " ";
+
+      //extract min
+      cout << "extract min ";
+      startTime = clock();
+      testHeap->extractMin();
+      endTime = clock();
+      cout << to_string(endTime - startTime) + " \n";
     }
-    double endTime = clock();
-
-    cout << to_string(endTime - startTime) + " ";
-
-    //find min
-    startTime = clock();
-    testHeap->findMin();
-    endTime = clock();
-    cout << to_string(endTime - startTime) + " ";
-
-    //extract min
-    startTime = clock();
-    testHeap->extractMin();
-    endTime = clock();
-    cout << to_string(endTime - startTime) + " \n";
   }
   file.close();
   return 0;
