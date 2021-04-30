@@ -21,46 +21,43 @@ vector<int> split(const std::string &s, char delimiter) {
   return tokens;
 }
 
-// спросить про нахождение минимума
-// спросить про путь к файлу
-// что должно быть в папке "тестовые наборы"
-// а еще у нас insert вставляет все числа сразу
-
 int main() {
-// путь до папки
-  string pathToInputFile = R"(D:\AaDS\semester-work-fibonacci-heap-new\dataset\input-1000000-0.txt)";
+  // путь до папки
+  string str;
+  cout<<"Absolute path to file:";
+  cin>>str;
+  string pathToInputFile = str;
 
   ifstream file(pathToInputFile);
   string result;
   string line;
 
- while (getline(file, line)) {
 
-   fibbHeap *testHeap = new fibbHeap;
-   vector<int> intValues = split(line, ' ');
+  while (getline(file, line)) {
+    fibbHeap *testHeap = new fibbHeap;
+    vector<int> intValues = split(line, ' ');
 
-      //insert
-   double startTime = clock();
-   for (int value : intValues) {
-     testHeap->insert(value);
-   }
-   double endTime = clock();
+    //insert
+    double startTime = clock();
+    for (int value : intValues) {
+      testHeap->insert(value);
+    }
+    double endTime = clock();
 
-   cout << to_string(endTime - startTime) + " ";
+    cout << to_string(endTime - startTime) + " ";
 
-      //find min
-   startTime = clock();
-   testHeap->findMin();
-   endTime = clock();
-   cout << to_string(endTime - startTime) + " ";
+    //find min
+    startTime = clock();
+    testHeap->findMin();
+    endTime = clock();
+    cout << to_string(endTime - startTime) + " ";
 
-      //extract min
-   startTime = clock();
-   testHeap->extractMin();
-   endTime = clock();
-   cout << to_string(endTime - startTime) + " \n";
- }
-
-    file.close();
-    return 0;
+    //extract min
+    startTime = clock();
+    testHeap->extractMin();
+    endTime = clock();
+    cout << to_string(endTime - startTime) + " \n";
+  }
+  file.close();
+  return 0;
 }
