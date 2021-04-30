@@ -1,7 +1,7 @@
 from random import randint
 
 def values_generator(set_quantity: int, min_value: int = 0, max_value: int = 100000000,
-                     min_elements_amount: int = 1000000, max_elements_amount: int = 1000000):
+                     min_elements_amount: int = 25000, max_elements_amount: int = 25000):
     """Function to generate values for tests"""
     for j in range(1):
         for _ in range(set_quantity):

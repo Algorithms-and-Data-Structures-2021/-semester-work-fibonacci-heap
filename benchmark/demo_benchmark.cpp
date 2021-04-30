@@ -11,6 +11,9 @@
 using namespace std;
 using namespace itis;
 
+static constexpr auto kDatasetPath = string_view{PROJECT_DATASET_DIR};
+static constexpr auto kProjectPath = string_view{PROJECT_SOURCE_DIR};
+
 vector<int> split(const std::string &s, char delimiter) {
   vector<int> tokens;
   string token;
@@ -28,7 +31,7 @@ vector<int> split(const std::string &s, char delimiter) {
 
 int main(int argc, char** argv) {
 // путь до папки
-  string pathToInputFile = R"(/dataset\input-1000000-0.txt)";
+  string pathToInputFile = R"(D:\AaDS\semester-work-fibonacci-heap-new\dataset\input-25000-0.txt)";
 
   ifstream file(pathToInputFile);
   string result;
