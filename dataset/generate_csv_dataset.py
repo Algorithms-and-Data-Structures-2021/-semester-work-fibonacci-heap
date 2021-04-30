@@ -11,6 +11,7 @@ def values_generator(amount: int, min_value: int = 0, max_value: int = 1000000):
             inp.write("\n")
 
 
+
 if __name__ == '__main__':
     help_message = """"""
     amount = int(input("Количество генерируемых чисел\n"))
